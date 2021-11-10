@@ -1,0 +1,11 @@
+﻿Name,Choice 1,Choice 2,Choice 3
+Nobody,One,Zero,Two
+No one,Zero,One,Two
+Empty,Two,Zero,One
+Nothing,Two,One,Zero
+Void,Two,One,Zero
+Zero,Zero,Two,One
+Zilch,Zero,One,Two
+Nothing,One,Two,Zero
+Gonzo,One,Two,Zero
+Lame,One,Zero,Two

@@ -1,0 +1,9 @@
+﻿Name,Choice 1,Choice 2,Choice 3,Choice 4
+Grace,cat,dog,tree,rat
+Grace,cat,tree,dog,rat
+Grace,cat,tree,dog,rat
+Grace,dog,rat,cat,tree
+Grace,tree,rat,cat,dog
+Grace,dog,rat,cat,tree
+Grace,tree,rat,dog,cat
+Grace,cat,dog,rat,tree

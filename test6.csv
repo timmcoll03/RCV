@@ -1,0 +1,6 @@
+﻿Name,Choice 1,Choice 2,Choice 3,Choice 4,Choice 5,Choice 6
+Tom1,village,chapel,cellar,workshop,laboratory,gardens
+Tom2,chapel,cellar,workshop,laboratory,village,gardens
+Tom3,gardens,cellar,workshop,laboratory,village,chapel
+Tom4,village,gardens,workshop,laboratory,chapel,cellar
+Tom5,laboratory,village,gardens,chapel,cellar,workshop

@@ -3,7 +3,8 @@ import numpy as np
 import math as m 
 
 
-def dataRetrive(path):
+def dataRetrive():
+    path = input("Enter the filename: ")
     df = pd.read_csv(path)
     df = df.drop(["Name"], axis = 1)
     return df
@@ -56,8 +57,7 @@ def RCV(df):
             print("This election has no winner.")
 
 def main():
-    path = input("Enter the filename: ")
-    df = dataRetrive(path)
+    df = dataRetrive()
     RCV(df)
 
 main()
