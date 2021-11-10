@@ -20,31 +20,33 @@ def checkVotes(results):
     else:   
         return False
 
-def reRank(results,df):
+def scrub(df):
     for y in range(len(df.columns)-1):
-        for x in range(len(df[df.columns[0]])):   
-            if results.keys()[len(results)-1] == df[df.columns[y]][x]:
-                    df[df.columns[y]][x] = df[df.columns[y+1]][x]
-                    df[df.columns[y+1]][x] = np.NaN
-
-    for x in range(len(df[df.columns[0]])):   
-        if results.keys()[len(results)-1] == df[df.columns[len(df.columns)-1]][x]:
-                df[df.columns[len(df.columns)-1]][x] = np.NaN
-
-    for y in range(len(df.columns)-2,0,-1):
         for x in range(len(df[df.columns[0]])): 
             if isinstance(df[df.columns[y]][x], str) != True:
                 if m.isnan(df[df.columns[y]][x]) == True:
                     df[df.columns[y]][x] = df[df.columns[y+1]][x]
+                    df[df.columns[y+1]][x] = np.NaN
+
+def reRank(results,df):    
+    for y in range(len(df.columns)-1):
+      for x in range(len(df[df.columns[0]])):   
+        if results.keys()[len(results)-1] == df[df.columns[y]][x]:
+              df[df.columns[y]][x] = np.NaN
+    
+    for  x in range(len(df.columns)-1):
+        scrub(df)
 
 def checkTies(results,df):
     for x in range(len(results)-1):
         if results[len(results)-1] == results[len(results)-1-x]:
             for y in range(len(df[df.columns[0]])):
-                if df[df.columns[0]][y] == results.keys()[len(results)-1-x]:
-                    df[df.columns[0]][y] = results.keys()[len(results)-1]
-
+                for z in range(len(df.columns)):
+                    if df[df.columns[z]][y] == results.keys()[len(results)-1-x]:
+                        df[df.columns[z]][y] = np.NaN
+    
 def RCV(df):
+    print(df)
     for x in range(len(df.columns)-1):
         results = df["Choice 1"].value_counts()
         tryed = checkVotes(results)
