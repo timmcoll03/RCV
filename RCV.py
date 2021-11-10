@@ -15,7 +15,7 @@ def checkVotes(results):
         print("The winner is candidate "+ str(results.keys()[0] + " with " + str(results[0])+" first-place votes"))
         return True
     elif results[0] == results[1]:
-        print("No winner, there was a tie")
+        print("This election has no winner.")
         return True
     else:   
         return False
