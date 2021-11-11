@@ -10,7 +10,6 @@ def dataRetrive():
     return df
 
 def checkVotes(results):
-    print(results)
     if results[0] >= sum(results)/2+1: 
         print("The winner is candidate "+ str(results.keys()[0] + " with " + str(results[0])+" first-place votes"))
         return True
@@ -52,7 +51,6 @@ def checkFor0Votes(results, df):
     checkList = []
     for z in range(len(results)):
         checkList.append(results.keys()[z])
-    print(checkList)
     for y in range(len(df.columns)-1):
       for x in range(len(df[df.columns[0]])):
           if df[df.columns[y]][x] not in checkList:
@@ -60,11 +58,9 @@ def checkFor0Votes(results, df):
 
     for x in range(len(df.columns)-1):
         scrub(df)
-    print(df)
 
 
 def RCV(df):
-    print(df)
     for x in range(len(df.columns)-1):
         results = df["Choice 1"].value_counts()
         cleanResults(df)
