@@ -44,11 +44,30 @@ def checkTies(results,df):
                 for z in range(len(df.columns)):
                     if df[df.columns[z]][y] == results.keys()[len(results)-1-x]:
                         df[df.columns[z]][y] = np.NaN
+
+def cleanResults(df):
+    checkFor0Votes(df["Choice 1"].value_counts(),df)
     
+def checkFor0Votes(results, df):
+    checkList = []
+    for z in range(len(results)):
+        checkList.append(results.keys()[z])
+    print(checkList)
+    for y in range(len(df.columns)-1):
+      for x in range(len(df[df.columns[0]])):
+          if df[df.columns[y]][x] not in checkList:
+              df[df.columns[y]][x] = np.NaN
+
+    for x in range(len(df.columns)-1):
+        scrub(df)
+    print(df)
+
+
 def RCV(df):
     print(df)
     for x in range(len(df.columns)-1):
         results = df["Choice 1"].value_counts()
+        cleanResults(df)
         tryed = checkVotes(results)
         if tryed == False:
             checkTies(results,df)
