@@ -4,7 +4,7 @@ import math as m
 
 
 def dataRetrive():
-    path = input("Enter the filename: ")
+    path = input("Enter the filename:")
     df = pd.read_csv(path)
     df = df.drop(["Name"], axis = 1)
     return df
